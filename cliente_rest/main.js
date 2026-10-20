@@ -374,7 +374,7 @@ function crearResenya() {
 }
 
 
-/ ---------- Ministerio de Sanidad (todo desde el cliente) ----------
+// ---------- Ministerio de Sanidad (todo desde el cliente) ----------
 // BLOQUE COMPLETO: sustituye todo lo que tenías de "Ministerio" por esto.
 
 const MINISTERIO = "https://undefined.ua.es/telemedicina/api/datos"; // confirmar URL real
