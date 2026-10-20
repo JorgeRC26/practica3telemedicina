@@ -2,15 +2,13 @@ var express = require("express");
 var app = express();
 // var ws = require('./servidor_ws.js');
 var jwt = require("jsonwebtoken");
-var SECRETO = "secreto_de_desarrollo"; // en la Parte 2 esto estaba bien como variable de entorno; lo dejo fijo porque ya no usamos .env
+var SECRETO = "secreto_de_desarrollo";
 
-// ============================================================
-// Conexión a Supabase (cliente oficial, en vez del driver pg)
-// ============================================================
+
 const { createClient } = require('@supabase/supabase-js');
 
-const supabaseUrl = 'https://cntrogiddqczcvrtimok.supabase.co'; // <-- pega aquí tu Project URL
-const supabaseKey = 'sb_publishable_i0Jh6lIuJJLAgPcruBkujg_JS-9mQjS';          // <-- pega aquí tu anon public key
+const supabaseUrl = 'https://cntrogiddqczcvrtimok.supabase.co';
+const supabaseKey = 'sb_publishable_i0Jh6lIuJJLAgPcruBkujg_JS-9mQjS';          
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 app.use(express.json());
@@ -39,9 +37,6 @@ function verificarToken(req, res, next) {
 
 app.use("/api", verificarToken);
 
-// ------------------------------------------------------------
-// Funciones auxiliares (equivalentes a los JOIN que tenías en SQL)
-// ------------------------------------------------------------
 
 async function getInfoRecurso(idRecurso, callback) {
     const { data, error } = await supabase
